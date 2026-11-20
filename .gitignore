@@ -1,7 +1,11 @@
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-.ruff_cache/
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.ruff_cache/
 *.sqlite
 *.sqlite-*
+mimesis-knowledge/work/
+mimesis-knowledge/datasets/raw/
+mimesis-knowledge/pilot/*.jsonl
+mimesis-knowledge/pilot/benchmark/*.jsonl

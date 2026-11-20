@@ -1,0 +1,37 @@
+# Qualidade e critérios de promoção
+
+**Decisão aprovada.** Conservar procedência, evidência de direitos e separação de avaliação. O motor precisa consumir uma base SQLite reconstruível. **Proposta científica.** Testar invariantes em todo lote e estimar a qualidade interpretativa em amostras estratificadas. A versão 0.0.0 especifica testes e denominadores. Não há corpus medido, metas de desempenho atingidas ou estimativas de acurácia nesta entrega.
+
+| Transição | Verificações integrais propostas | Resposta à falha |
+|---|---|---|
+| Recebimento em RAW | Origem e edição identificadas, permissão de guarda, SHA-256 confere, tamanho e tipo registrados, sucesso de transferência | Isolar o arquivo incompleto, tentar novamente pelo canal permitido ou registrar falha da aquisição. Não promover o objeto truncado |
+| RAW → PROCESSED | Operação de extração permitida, esquema válido, decodificação declarada, vínculos de origem e localizadores reproduzíveis, reconciliação de unidades aceitas e excluídas | Corrigir a transformação e reexecutar a partir da entrada identificada. Guardar motivo e histórico |
+| PROCESSED → CURATED | Integridade de referências, identidade/revisão únicas, revisão linguística/semântica, decisão de direitos para o uso previsto e família de origem/paráfrase atribuída | Adjudicar ambiguidade, restringir o perfil de uso, pedir revisão nova ou emitir rejeição rastreável |
+| CURATED → RELEASED | Manifesto fechado e reproduzível, direitos por operação e obrigações cumpridas, nenhum gabarito no índice, reconstrução limpa e compatibilidade demonstrada | Excluir componentes inelegíveis e produzir nova seleção consistente, ou suspender a release |
+| REJECTED | O evento identifica alvo, motivo, estágio, responsável e retenção permitida. Caso corrigido tem ligação à revisão substituta | Completar a trilha com metadados mínimos permitidos. Contabilizar a rejeição ativa e a posterior correção separadamente |
+
+## Medidas úteis e como lê-las
+
+| Pergunta | Medida e denominador | Limitação a informar no relatório |
+|---|---|---|
+| Quanto do lote se converteu em material utilizável? | Número de unidades de entrada aceitas / unidades examinadas. Relatar pendentes e motivos de exclusão. Etapas que dividem um livro em trechos reportam separadamente quantidade de livros e de trechos | Uma taxa por fragmento privilegia obras longas. Relatar também por obra, edição e fonte |
+| As âncoras continuam válidas? | Âncoras resolvidas no artefato e confirmadas por conferência de trecho / âncoras verificáveis. Inspecionar todas as referências estruturais e reportar separadamente a amostragem humana do sentido | Um intervalo válido pode apontar ao locutor errado |
+| O OCR preservou a transcrição? | Para páginas com transcrição humana de referência, CER = (substituições + inserções + exclusões) / caracteres de referência por alinhamento de mínima edição. Fixar unidade Unicode, pontuação, espaços e normalização para ambas as sequências | Relatar por edição e condição da página. Amostrar páginas difíceis e medir erros de travessão e quebras à parte. Denominador zero fica sem estimativa |
+| A extração localizou trechos da categoria correta? | Em amostra anotada independentemente, contar correspondências um-para-um de classe e intervalo exato. Precisão = TP/(TP+FP), revocação = TP/(TP+FN), F1 = 2TP/(2TP+FP+FN) | Declarar se a correspondência parcial é reportada como análise adicional. Não forçar zero a medidas de denominador vazio. Mostrar confusão de classe e de fronteira separadamente |
+| A rubrica pode ser aplicada por pessoas diferentes? | Relatar concordância, número de unidades e distribuição das classes antes de adjudicar. Para categorias nominais em unidades fixas, considerar α = 1 − Dₒ/Dₑ, discordância observada e esperada. Se Dₑ = 0 a medida fica indefinida | Poucos casos ou uma classe dominante dificultam a interpretação. Fronteiras livres exigem medida de segmentação separada. [Krippendorff, 2011](https://www.tandfonline.com/doi/full/10.1080/19312458.2011.568376) |
+| Quais variedades e origens estão representadas? | Contagem por autor, obra, edição, fonte, período, variedade e idioma/variedade indeterminados, por registro e por família | A predominância de literatura histórica afeta o que se pode concluir sobre conversa brasileira atual. Um catálogo representativo depende da população escolhida |
+| A avaliação ficou independente? | Contar famílias compartilhadas entre repertório/treino e consultas reservadas, colisões de hashes e pares próximos adjudicados. Revisar amostra de pares não sinalizados | Zero duplicatas exatas não exclui paráfrases. Um teste diagnóstico de igualdade exata deve ser identificado e relatado à parte do teste de generalização |
+| A reconstrução é repetível? | Em duas construções limpas, comparar digests lógicos ordenados, contagens por tabela, vínculos e resultados de consultas sentinela com desempate fixo | Incluir versões de ferramentas e configuração. Hash físico de SQLite e equivalência lógica são verificações distintas |
+
+Medir por lote e em conjunto. Registrar população, unidade de amostragem, estratos, regra de seleção, tamanho de cada estrato e semente quando houver sorteio. Páginas de uma mesma edição e variantes do mesmo Talkset não são independentes. Quando a equipe precisar de intervalo de incerteza agregado, reamostrar por grupo de origem e explicitar a ponderação. Comparar resultados com a edição anterior somente para populações comparáveis. Se a composição mudou, relatar o resultado comum e os estratos novos separadamente.
+
+## Testes de regressão propostos
+
+1. Alterar um byte do original de exemplo preservando o nome. A verificação acusa divergência e impede promoção do artefato.
+2. Modificar a grafia em forma normalizada e incluir acento combinante. O intervalo original continua recuperando o trecho da representação anterior. Criar localizador novo para a derivada e validar o mapa.
+3. Introduzir uma paráfrase de consulta de teste em um lote próprio e uma segunda edição da mesma obra no treino. A comparação aponta parentesco, aciona revisão e exige reagrupar ou excluir antes de congelar a partição.
+4. Permitir cópia interna e vedar distribuição em um caso fictício. A publicação falha se o texto puder ser reconstituído de um registro, índice FTS, amostra de README ou gabarito exportado.
+5. Duplicar uma chave de revisão com cargas diferentes ou deixar um alvo ausente. A avaliação de integridade falha com a identidade envolvida. Uma correção gera revisão explicitamente vinculada, preservando a evidência permitida.
+6. Simular desacordo entre revisores sobre emoção inferida ou locutor. O relatório pré-adjudicação conta a divergência, a decisão posterior preserva a incerteza ou sua justificativa.
+
+Direitos por finalidade, existência de referências necessárias, identidade inequívoca e segregação dos dados de teste são verificações de elegibilidade. Para estimativas de CER, F1, cobertura ou concordância, **os limiares quantitativos permanecem pendentes do piloto**. Antes de abrir o teste final, registrar corte por uso, tamanho amostral, tratamento de classes raras e ação no insucesso. Publicar contagens, limitações e incertezas ao lado da decisão de promoção. [Curadoria](CURATION_GUIDELINES.md) · [Benchmarks](BENCHMARK_DATASETS.md) · [Pipeline](DATA_PIPELINE.md)\n

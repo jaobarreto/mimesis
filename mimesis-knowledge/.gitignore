@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+work/
+datasets/raw/
+*.pyc
+# Conteúdo pendente de decisão de redistribuição e consultas sob custódia.
+pilot/*.jsonl
+pilot/benchmark/*.jsonl

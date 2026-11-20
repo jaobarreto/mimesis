@@ -1,0 +1,11 @@
+# Banco experimental pt-BR do piloto
+
+As 33 consultas desafiam um repertório de 50 Talksets. Cada consulta é autocontida e o cenário `standalone` não fornece fatos adicionais. A amostragem foi intencional. Há 15 consultas de desenvolvimento, 15 de teste exploratório e três diagnósticas vinculadas à contribuição sintética. Desenvolvimento e teste contêm casos das dez intenções, casos fora de cobertura e enunciados ambíguos.
+
+Codex redigiu as consultas de desenvolvimento e teste e propôs seus julgamentos na mesma sessão em que ampliou o repertório. As famílias identificam situações e paráfrases locais. Elas permanecem inteiras em uma partição. A autoria compartilhada e o conhecimento prévio do catálogo limitam qualquer inferência sobre usuários, autores ou situações independentes. O diagnóstico reproduz uma entrada do repertório e os dois controles fornecidos. Apurar seus resultados separadamente.
+
+O avaliador lê `judgments.jsonl`. Para cada consulta e revisão, `positive_response_ids` propõe grau 2 e `negative_response_ids` propõe grau 0. O primeiro elemento de cada lista de respostas do Talkset tem sufixo `-r1`. Uma resposta ausente dessas listas está sem julgamento. A seleção dos negativos favorece confusões plausíveis por pessoa gramatical, polaridade, ato de fala ou vocabulário. Em consultas ambíguas e fora de cobertura, o comportamento esperado é a abstenção.
+
+O executor recebe somente identificador, texto, idioma e cenário da consulta. O controlador mantém os grupos e partições. O catálogo indexado recebe somente o repertório. Ajustes no desenvolvimento devem preceder a leitura dos resultados do teste. Resultados que orientarem ajustes posteriores passam a integrar o histórico de exploração.
+
+Cada uma das 400 combinações entre entrada e resposta do repertório aguarda dois pareceres humanos independentes. A equipe também precisa revisar a classe de cada consulta, seus julgamentos de resposta e as famílias próximas ao repertório ou a outra partição. Os revisores devem receber os exemplos sem os rótulos propostos. Registrar decisões individuais, motivos, datas, versão da rubrica e adjudicação de desacordos. Um teste confirmatório exige consultas inéditas e independentes, reservadas até o congelamento da configuração avaliada.

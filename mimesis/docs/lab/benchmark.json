@@ -1,0 +1,2080 @@
+{
+  "suite": "core-diagnostics-v1",
+  "projection": {
+    "mode": "experimental_fixture",
+    "fixture": "synthetic-core-v1",
+    "fixture_sha256": "936238b2ab895942916fa8bd592d9813c7ef251851efb7da167d8dac911213fb",
+    "config_sha256": "2b02737deb2d47dba1e1354dcd94f505f63868bceebbe23cf150543b88f5ef23",
+    "sqlite_version": "3.46.1",
+    "talksets": 6,
+    "prompts": 8,
+    "responses": 7,
+    "logical_sha256": "aa89b0a8dc7d0e045df06a66be2b5ce47f10c4b9c8100e6b35296cf5009b2a8e"
+  },
+  "policy": "fixture-ranking-v1",
+  "limits": {
+    "exact": [
+      1,
+      0
+    ],
+    "fuzzy": [
+      0.79,
+      0.04
+    ],
+    "levenshtein": [
+      0.73,
+      0.04
+    ],
+    "bm25": [
+      0.6,
+      0.12
+    ]
+  },
+  "observations": [
+    {
+      "case": "literal",
+      "method": "exact",
+      "query": "Posso fechar a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.559249,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 1,
+          "score": 1,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "literal",
+      "method": "fuzzy",
+      "query": "Posso fechar a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.921819,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.5423728813559322
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.5
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.25
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.25
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 1.0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.7169811320754716,
+          "score": 0.7169811320754716,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.6538461538461539,
+          "score": 0.6538461538461539,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.5423728813559322,
+          "score": 0.5423728813559322,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.5,
+          "score": 0.5,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.25,
+          "score": 0.25,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.25,
+          "score": 0.25,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.16326530612244897,
+          "score": 0.16326530612244897,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "literal",
+      "method": "levenshtein",
+      "query": "Posso fechar a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.617187,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.4054054054054054
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.3666666666666667
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.2727272727272727
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.2727272727272727
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 12,
+          "score": 0.6129032258064516,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 14,
+          "score": 0.5333333333333333,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 22,
+          "score": 0.4054054054054054,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 19,
+          "score": 0.3666666666666667,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 16,
+          "score": 0.2727272727272727,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 16,
+          "score": 0.2727272727272727,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 22,
+          "score": 0.18518518518518523,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "literal",
+      "method": "bm25",
+      "query": "Posso fechar a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.538518,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 2.6180099865099367
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 2.6180099865099367
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.840850951624144
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1.1079136690647482e-06
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": -2.6180099865099367,
+          "score": 2.6180099865099367,
+          "coverage": 1.0,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": -1.2385978605180346,
+          "score": 1.2385978605180346,
+          "coverage": 0.75,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": -0.840850951624144,
+          "score": 0.840850951624144,
+          "coverage": 0.5,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": -0.4270298347020296,
+          "score": 0.4270298347020296,
+          "coverage": 0.5,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.25,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "grafia",
+      "method": "fuzzy",
+      "query": "Posso fechr a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.53854,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.9767441860465116
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.9767441860465116
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.5172413793103449
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.5098039215686274
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.2564102564102564
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.2564102564102564
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0.9767441860465116,
+          "score": 0.9767441860465116,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.6923076923076923,
+          "score": 0.6923076923076923,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.6666666666666666,
+          "score": 0.6666666666666666,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.5172413793103449,
+          "score": 0.5172413793103449,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.5098039215686274,
+          "score": 0.5098039215686274,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.2564102564102564,
+          "score": 0.2564102564102564,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.2564102564102564,
+          "score": 0.2564102564102564,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.16666666666666666,
+          "score": 0.16666666666666666,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "grafia",
+      "method": "levenshtein",
+      "query": "Posso fechr a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.585815,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.9545454545454546
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.9545454545454546
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.4
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.3783783783783784
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.2857142857142857
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.2857142857142857
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 1,
+          "score": 0.9545454545454546,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 13,
+          "score": 0.5806451612903225,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 13,
+          "score": 0.5666666666666667,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 18,
+          "score": 0.4,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 23,
+          "score": 0.3783783783783784,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 15,
+          "score": 0.2857142857142857,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 15,
+          "score": 0.2857142857142857,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 21,
+          "score": 0.2222222222222222,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "grafia",
+      "method": "bm25",
+      "query": "Posso fechr a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": "window-r1",
+      "outcome": "answered",
+      "reason": "matched",
+      "correct_answer": true,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.440708,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1.55938579561623
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1.55938579561623
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.840850951624144
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1.1079136690647482e-06
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": -1.55938579561623,
+          "score": 1.55938579561623,
+          "coverage": 0.75,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": -0.840850951624144,
+          "score": 0.840850951624144,
+          "coverage": 0.5,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": -0.4270298347020296,
+          "score": 0.4270298347020296,
+          "coverage": 0.5,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": -0.3977477888938904,
+          "score": 0.3977477888938904,
+          "coverage": 0.5,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.25,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "grafia",
+      "method": "exact",
+      "query": "Posso fechr a janela?",
+      "expected": [
+        "window-r1",
+        "window-r2"
+      ],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "no_match",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.077095,
+      "ranking": [],
+      "candidates": []
+    },
+    {
+      "case": "ambiguidade",
+      "method": "levenshtein",
+      "query": "A luz está pronta?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "ambiguous",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 1.002028,
+      "ranking": [
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.2727272727272727
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.2727272727272727
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.2592592592592593
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.18918918918918914
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 16,
+          "score": 0.2727272727272727,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 20,
+          "score": 0.2592592592592593,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 23,
+          "score": 0.25806451612903225,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 23,
+          "score": 0.23333333333333328,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 30,
+          "score": 0.18918918918918914,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 25,
+          "score": 0.16666666666666663,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "ambiguidade",
+      "method": "bm25",
+      "query": "A luz está pronta?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "ambiguous",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.588937,
+      "ranking": [
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 3.175873680594788
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 3.175873680594788
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 8.8e-07
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": -3.175873680594788,
+          "score": 3.175873680594788,
+          "coverage": 1.0,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": -3.175873680594788,
+          "score": 3.175873680594788,
+          "coverage": 1.0,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": -9.447852760736198e-07,
+          "score": 9.447852760736198e-07,
+          "coverage": 0.25,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": -8.8e-07,
+          "score": 8.8e-07,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": -8.8e-07,
+          "score": 8.8e-07,
+          "coverage": 0.25,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "ambiguidade",
+      "method": "exact",
+      "query": "A luz está pronta?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "ambiguous",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.100778,
+      "ranking": [
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 1,
+          "score": 1,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 1,
+          "score": 1,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "ambiguidade",
+      "method": "fuzzy",
+      "query": "A luz está pronta?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "ambiguous",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.521374,
+      "ranking": [
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1.0
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.3555555555555555
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.26530612244897955
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.26530612244897955
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.23636363636363633
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 1.0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 1.0,
+          "score": 1.0,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.3555555555555555,
+          "score": 0.3555555555555555,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.26530612244897955,
+          "score": 0.26530612244897955,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0.25,
+          "score": 0.25,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.23636363636363633,
+          "score": 0.23636363636363633,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.22916666666666669,
+          "score": 0.22916666666666669,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.14583333333333331,
+          "score": 0.14583333333333331,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        }
+      ]
+    },
+    {
+      "case": "desconhecida",
+      "method": "bm25",
+      "query": "Quantos planetas orbitam Júpiter?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "no_match",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.086712,
+      "ranking": [],
+      "candidates": []
+    },
+    {
+      "case": "desconhecida",
+      "method": "exact",
+      "query": "Quantos planetas orbitam Júpiter?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "no_match",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.049607,
+      "ranking": [],
+      "candidates": []
+    },
+    {
+      "case": "desconhecida",
+      "method": "fuzzy",
+      "query": "Quantos planetas orbitam Júpiter?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.740355,
+      "ranking": [
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.43333333333333335
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.2909090909090909
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.2909090909090909
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.2571428571428571
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.2549019607843137
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.2549019607843137
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.43333333333333335,
+          "score": 0.43333333333333335,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0.2909090909090909,
+          "score": 0.2909090909090909,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.2571428571428571,
+          "score": 0.2571428571428571,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.2549019607843137,
+          "score": 0.2549019607843137,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.2549019607843137,
+          "score": 0.2549019607843137,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.25,
+          "score": 0.25,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.2222222222222222,
+          "score": 0.2222222222222222,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.20634920634920634,
+          "score": 0.20634920634920634,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        }
+      ]
+    },
+    {
+      "case": "desconhecida",
+      "method": "levenshtein",
+      "query": "Quantos planetas orbitam Júpiter?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 7.73429,
+      "ranking": [
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.24242424242424243
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.24242424242424243
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.24242424242424243
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.24242424242424243
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.24242424242424243
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.21621621621621623
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 25,
+          "score": 0.24242424242424243,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 25,
+          "score": 0.24242424242424243,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 25,
+          "score": 0.24242424242424243,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 25,
+          "score": 0.24242424242424243,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 29,
+          "score": 0.21621621621621623,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 26,
+          "score": 0.21212121212121215,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 26,
+          "score": 0.21212121212121215,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 29,
+          "score": 0.12121212121212122,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        }
+      ]
+    },
+    {
+      "case": "inversão",
+      "method": "exact",
+      "query": "Você pode embrulhar a caixa para mim?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "no_match",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.321588,
+      "ranking": [],
+      "candidates": []
+    },
+    {
+      "case": "inversão",
+      "method": "fuzzy",
+      "query": "Você pode embrulhar a caixa para mim?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 1.572033,
+      "ranking": [
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.44776119402985076
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.4264705882352941
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.4264705882352941
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.21818181818181817
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.21818181818181817
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.7567567567567568,
+          "score": 0.7567567567567568,
+          "coverage": null,
+          "filter": "role_order_mismatch"
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.44776119402985076,
+          "score": 0.44776119402985076,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.4264705882352941,
+          "score": 0.4264705882352941,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0.423728813559322,
+          "score": 0.423728813559322,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.2835820895522388,
+          "score": 0.2835820895522388,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.265625,
+          "score": 0.265625,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.21818181818181817,
+          "score": 0.21818181818181817,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.21818181818181817,
+          "score": 0.21818181818181817,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "inversão",
+      "method": "levenshtein",
+      "query": "Você pode embrulhar a caixa para mim?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 1.294179,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.32432432432432434
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.32432432432432434
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.29729729729729726
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.18918918918918914
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.18918918918918914
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 11,
+          "score": 0.7027027027027026,
+          "coverage": null,
+          "filter": "role_order_mismatch"
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 25,
+          "score": 0.32432432432432434,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 26,
+          "score": 0.29729729729729726,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 26,
+          "score": 0.29729729729729726,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 29,
+          "score": 0.21621621621621623,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 29,
+          "score": 0.21621621621621623,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 30,
+          "score": 0.18918918918918914,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 30,
+          "score": 0.18918918918918914,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "inversão",
+      "method": "bm25",
+      "query": "Você pode embrulhar a caixa para mim?",
+      "expected": [],
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": false,
+      "wrong_answer": false,
+      "false_accept": false,
+      "elapsed_ms": 0.607289,
+      "ranking": [
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 1.1079136690647482e-06
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 1.1079136690647482e-06
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": -5.6652223317680335,
+          "score": 5.6652223317680335,
+          "coverage": 0.7142857142857143,
+          "filter": "role_order_mismatch"
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.14285714285714285,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.14285714285714285,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": -1.1079136690647482e-06,
+          "score": 1.1079136690647482e-06,
+          "coverage": 0.14285714285714285,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": -9.447852760736198e-07,
+          "score": 9.447852760736198e-07,
+          "coverage": 0.14285714285714285,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": -8.8e-07,
+          "score": 8.8e-07,
+          "coverage": 0.14285714285714285,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "exploratória",
+      "method": "fuzzy",
+      "query": "Uma janela aberta ajuda?",
+      "expected": null,
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": null,
+      "wrong_answer": null,
+      "false_accept": null,
+      "elapsed_ms": 0.711936,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.4
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.4
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.37037037037037035
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.360655737704918
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.3571428571428571
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.3571428571428571
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 0.4,
+          "score": 0.4,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 0.391304347826087,
+          "score": 0.391304347826087,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 0.37037037037037035,
+          "score": 0.37037037037037035,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 0.360655737704918,
+          "score": 0.360655737704918,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.3571428571428571,
+          "score": 0.3571428571428571,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 0.3571428571428571,
+          "score": 0.3571428571428571,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 0.33333333333333337,
+          "score": 0.33333333333333337,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 0.2962962962962963,
+          "score": 0.2962962962962963,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        }
+      ]
+    },
+    {
+      "case": "exploratória",
+      "method": "levenshtein",
+      "query": "Uma janela aberta ajuda?",
+      "expected": null,
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": null,
+      "wrong_answer": null,
+      "false_accept": null,
+      "elapsed_ms": 0.885035,
+      "ranking": [
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.32258064516129037
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.32258064516129037
+        },
+        {
+          "talkset_id": "room-light",
+          "response_id": "room-light-r1",
+          "score": 0.29166666666666663
+        },
+        {
+          "talkset_id": "stage-light",
+          "response_id": "stage-light-r1",
+          "score": 0.29166666666666663
+        },
+        {
+          "talkset_id": "parcel",
+          "response_id": "parcel-r1",
+          "score": 0.2702702702702703
+        },
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 0.2666666666666667
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": 21,
+          "score": 0.32258064516129037,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "room-light-p1",
+          "talkset_id": "room-light",
+          "key": "a luz está pronta?",
+          "raw_score": 17,
+          "score": 0.29166666666666663,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "stage-light-p1",
+          "talkset_id": "stage-light",
+          "key": "a luz está pronta?",
+          "raw_score": 17,
+          "score": 0.29166666666666663,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": 17,
+          "score": 0.29166666666666663,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "parcel-p1",
+          "talkset_id": "parcel",
+          "key": "eu posso embrulhar a caixa para você?",
+          "raw_score": 27,
+          "score": 0.2702702702702703,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": 22,
+          "score": 0.2666666666666667,
+          "coverage": null,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": 22,
+          "score": 0.2666666666666667,
+          "coverage": null,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "break-p2",
+          "talkset_id": "break",
+          "key": "que tal um breve intervalo?",
+          "raw_score": 21,
+          "score": 0.2222222222222222,
+          "coverage": null,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "exploratória",
+      "method": "bm25",
+      "query": "Uma janela aberta ajuda?",
+      "expected": null,
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "low_score",
+      "correct_answer": null,
+      "wrong_answer": null,
+      "false_accept": null,
+      "elapsed_ms": 0.757691,
+      "ranking": [
+        {
+          "talkset_id": "break",
+          "response_id": "break-r1",
+          "score": 1.641413500098354
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r1",
+          "score": 0.5007604968088547
+        },
+        {
+          "talkset_id": "window",
+          "response_id": "window-r2",
+          "score": 0.5007604968088547
+        }
+      ],
+      "candidates": [
+        {
+          "prompt_id": "break-p1",
+          "talkset_id": "break",
+          "key": "podemos fazer uma pausa breve?",
+          "raw_score": -1.641413500098354,
+          "score": 1.641413500098354,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-p1",
+          "talkset_id": "window",
+          "key": "posso fechar a janela?",
+          "raw_score": -0.5007604968088547,
+          "score": 0.5007604968088547,
+          "coverage": 0.25,
+          "filter": null
+        },
+        {
+          "prompt_id": "window-open-p1",
+          "talkset_id": "window-open",
+          "key": "por favor, não feche a janela.",
+          "raw_score": -0.42702888991675353,
+          "score": 0.42702888991675353,
+          "coverage": 0.25,
+          "filter": "negation_mismatch"
+        },
+        {
+          "prompt_id": "window-p2",
+          "talkset_id": "window",
+          "key": "tudo bem se eu fechar a janela?",
+          "raw_score": -0.3977469088938904,
+          "score": 0.3977469088938904,
+          "coverage": 0.25,
+          "filter": null
+        }
+      ]
+    },
+    {
+      "case": "exploratória",
+      "method": "exact",
+      "query": "Uma janela aberta ajuda?",
+      "expected": null,
+      "answer": null,
+      "outcome": "fallback",
+      "reason": "no_match",
+      "correct_answer": null,
+      "wrong_answer": null,
+      "false_accept": null,
+      "elapsed_ms": 0.174252,
+      "ranking": [],
+      "candidates": []
+    }
+  ]
+}
